@@ -1,0 +1,11 @@
+promedios=float(input('cual es tu promedio'))
+
+if promedios >=6.0:
+   print('Felicitacion,estas eximido')
+elif promedios>=4.0: 
+    print('Felicidades,aprobaste el curso')
+else:
+    print('Lo siento reprobaste')
+
+print('programa terminado')
+    

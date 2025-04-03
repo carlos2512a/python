@@ -1,0 +1,11 @@
+promedios=int(input('cual es tu promedio'))
+
+if promedios >=7:
+    print('aprobaste el curso')
+elif promedios>=4: 
+    print('prueba repechaje')
+elif promedios >=2:
+    print('reprobaste el curso')
+else:
+    print('programa terminado')
+   
