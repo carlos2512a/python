@@ -9,10 +9,48 @@ user = os.getenv("USER")
 db = os.getenv("DB")
 print (host)
 
-conexion1= Conexion(host,user,passwd,db)
+#conexion1= Conexion(host,user,passwd,db)
 
-cursor = conexion1.ejecutarQuery("select * from cliente")
-datos = cursor.fetchall()
-print(datos)
+#cursor = conexion1.ejecutarQuery("select * from cliente")
+#datos = cursor.fetchall()
+#print(datos)
 
-conexion1.desconectar()
+#conexion1.desconectar()
+
+def mostrarTodos():
+    try:
+        con = Conexion(host,user,passwd,db)
+        sql ="select * from cliente"
+        cursor = con.ejecutarQuery(sql)
+        datos = cursor.fetchall()
+        con.desconectar()
+    except Exception as e:
+        print(e)
+    return datos
+
+def mostrarParcial(cant):
+    try:
+        con = Conexion(host,user,passwd,db)
+        sql ="select * from cliente"
+        cursor = con.ejecutarQuery(sql)
+        datos = cursor.fetchmany(size=cant)
+        con.desconectar()
+    except Exception as e:
+        print(e)
+    return datos 
+
+def mostrarParticular(id):
+    try:
+        con = Conexion(host,user,passwd,db)
+        sql ="select * from cliente where cli_id='{}'".format(id)
+        cursor = con.ejecutarQuery(sql)
+        datos = cursor.fetchone()
+        con.desconectar()
+    except Exception as e:
+        print(e)
+    return datos
+
+
+print(mostrarTodos)
+print(mostrarParcial)
+print(mostrarParticular)
