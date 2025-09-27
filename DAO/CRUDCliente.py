@@ -51,6 +51,6 @@ def mostrarParticular(id):
     return datos
 
 
-print(mostrarTodos)
-print(mostrarParcial)
-print(mostrarParticular)
+print(mostrarTodos())
+print(mostrarParcial(3))
+print(mostrarParticular(id))
