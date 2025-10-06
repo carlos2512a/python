@@ -1,19 +1,8 @@
-import pymysql 
+import pymysql
+class Tipo: 
+    def __init__(self, id, nombre):
+        self.con = pymysql.connect(id=id , nombre=id)
+        self.cursor = self.con.cursor() 
 
-class Tipo:
-    def __init__(self,codigo,nombre):
-        self.con = pymysql.connect(codigo=codigo,nombre=nombre)
-        self.cursor = self .con.cursor()
-        
-    def __str__(self,sql):
-        self.cursor.execute(sql)
-        return self.cursor
-    
-    def desconectar(self):
-        self.con.close()
-        
-    def commit(self):
-        self.con.commit()
-        
-    def rollback(self):
-        self.con.rollback()
+    def __str__(self):
+        return F"Cliente de run:{self.con}"
